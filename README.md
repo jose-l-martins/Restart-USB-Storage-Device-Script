@@ -10,9 +10,11 @@ In this particular case, the problem could be either hardware-related (such as f
 3. Right-click on the device and select "Browse my computer for drivers" (bottom option).
 
 ![Example screenshot 4](images/Example_screenshot_4.PNG)
+
 4. Select "Let me pick from a list of available drivers on my computer" (bottom option).
 
 ![Example screenshot 5](images/Example_screenshot_5.PNG)
+
 5. The single, correct driver should be selected by default. Click "Next", to update it with 'itself' and then "Close".
 
 ![Example screenshot 6](images/Example_screenshot_6.PNG)
@@ -42,10 +44,15 @@ There are two methods to find the Device Instance ID:
 
    ![Example screenshot 3](images/Example_screenshot_3.PNG)
 
-### Method 2: Using Command Line
+### Method 2: Manual Verification Using Command Line
 
-1. Use the `pnputil.exe /enum-devices /class USB /problem` command in your terminal to list only USB devices that are encountering problems, filtering the results directly.
-2. Copy only the value of the `Instance ID:` field, in the output and replace the `deviceInstanceId` in the script with the value you found.
+1. Use the `pnputil.exe /enum-devices /class USB /problem` command in your terminal. This command lists only USB devices that are encountering problems. By manually combing through the output, you can verify the results yourself. This manual verification provides a greater sense of reliability and trust in the result.
+2. From the output, copy only the value of the `Instance ID:` field. Replace the `deviceInstanceId` in the script with the value you found. This manual process allows for human verification, ensuring the accuracy of the Device Instance ID.
+
+### Method 3: Automatic Search Using Command Line
+
+1. Simply run the `Restart_usb_ext_hdd_device.ps1` script and it will automatically search for the Device Instance ID of the wanted, problematic device, if there is one. This method is the most convenient and efficient, as it automates the entire process for you.
+2. To do so, open up PowerShell and navigate to the directory where the script is located. Then, run the script by typing `.\Restart_usb_ext_hdd_device.ps1` and pressing Enter.
 
 ## What the Script Does
 
